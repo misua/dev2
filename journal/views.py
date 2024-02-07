@@ -7,6 +7,7 @@ import logging
 
 
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 logger = logging.getLogger(__name__)
@@ -28,10 +29,14 @@ def register(request):
         if form.is_valid():
             try:
                 form.save()
+                
+                messages.success(request, 'Account was created for ' + form.cleaned_data['username'])
+
             except Exception as e:
                 print(f"error saving form: {e}")
                 return render(request, 'journal/register.html', {'RegistrationForm': form})
-            return redirect('my-login')
+            
+        return redirect('my-login')
          
     context = {'RegistrationForm': form}
          
