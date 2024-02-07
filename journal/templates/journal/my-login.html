@@ -1,0 +1,51 @@
+{% load static %}
+
+{% load crispy_forms_tags%}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<figure>
+    <blockquote class="blockquote">
+        <p class="mb-0">Nobody Cares about your story until you win, so Win!</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        Someone famous - <cite title="Source Title">Charles</cite>
+    </figcaption>
+</figure>
+   <br>
+   <div class="container bg-grey shadow-lg p-5 form-layout">
+   
+ 
+ 
+
+<form method="POST" action="{% url 'my-login' %}" autocomplete="off">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label class="form-label mt-4">Login igat!</label>
+    
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="id_username" name="username" placeholder="Username">
+            <label for="id_username">Username</label>
+        </div>
+    
+        <div class="form-floating">
+            <input type="password" class="form-control" id="id_password" name="password" placeholder="Password">
+            <label for="id_password">Password</label>
+        </div>
+    
+    </div>
+    <br>
+    <button class="btn btn-secondary btn-md w-50 btn-block p-3" type="submit">Login Account</button>
+</form>
+       
+    </div>
+    <br>
+
+</html>

@@ -1,0 +1,32 @@
+
+{% load static %}
+{% load crispy_forms_tags%}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title> Edenthought | Register</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<br>
+   <div class="container bg-grey shadow-lg p-5 form-layout">
+        <h5>Create your Account</h5>
+        <hr>
+
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+
+           {{RegistrationForm|crispy}}
+
+           <br>
+
+            <button class="btn btn-secondary btn-md w-50 btn-block p-3 type="submit">Create Account</button>
+            {% comment %} <button type="submit" class="btn btn-success">Create account</button> {% endcomment %}
+            <p>Already have an account? <a href="{% url 'my-login' %}">Login</a></p>
+        </form>
+    </div>
+    <br>
+</html>
